@@ -1,0 +1,206 @@
+/* style.css */
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Soft Gradient Background */
+      background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+      color: #333;
+      overflow-x: hidden;
+}
+
+/* Background animated circles to enhance Glassmorphism */
+.bg-circles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+}
+
+.circle {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+      animation: float 10s infinite ease-in-out;
+}
+
+.circle-1 {
+      width: 300px;
+      height: 300px;
+      top: -50px;
+      left: -100px;
+}
+
+.circle-2 {
+      width: 250px;
+      height: 250px;
+      bottom: -80px;
+      right: -50px;
+      animation-delay: -2s;
+}
+
+.circle-3 {
+      width: 150px;
+      height: 150px;
+      top: 40%;
+      right: 20%;
+      animation-delay: -4s;
+      background: linear-gradient(135deg, rgba(246, 211, 101, 0.4), rgba(253, 160, 133, 0.1));
+}
+
+@keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-20px) scale(1.05); }
+}
+
+/* Glassmorphism Container */
+.container {
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 24px;
+      padding: 40px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      text-align: center;
+      /* Boshlanish animatsiyasi */
+      animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+}
+
+/* Profile Image */
+.profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+      transform: scale(1.05) rotate(3deg);
+}
+
+/* Name and Bio */
+.name {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #1a1a1a;
+}
+
+.bio {
+      font-size: 0.95rem;
+      color: #4a4a4a;
+      margin-bottom: 30px;
+      font-weight: 400;
+}
+
+/* Links Box */
+.links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+}
+
+/* Buttons Design */
+.link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 50px;
+      text-decoration: none;
+      color: #222;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow: hidden;
+      /* Subtle inner glow */
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+.link-btn i {
+      position: absolute;
+      left: 20px;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+}
+
+/* Hover and Focus States */
+.link-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 12px 24px rgba(31, 38, 135, 0.12);
+      border-color: rgba(255, 255, 255, 1);
+}
+
+.link-btn:active {
+      transform: translateY(1px) scale(0.98);
+}
+
+/* Icon Colors on Hover */
+.link-btn.telegram:hover i { color: #0088cc; }
+.link-btn.instagram:hover i { color: #e1306c; }
+.link-btn.linkedin:hover i { color: #0077b5; }
+.link-btn.portfolio:hover i { color: #333333; }
+.link-btn.youtube:hover i { color: #ff0000; }
+
+/* JavaScript click "Ripple" effect classes */
+.ripple {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.05); /* very soft subtle dark ripple */
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple-effect 0.6s linear;
+      pointer-events: none;
+}
+
+@keyframes ripple-effect {
+      to {
+                transform: scale(4);
+                opacity: 0;
+      }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+      .container {
+                padding: 30px 20px;
+                border-radius: 20px;
+      }
+      .profile-img {
+                width: 100px;
+                height: 100px;
+      }
+      .name {
+                font-size: 1.4rem;
+      }
+      .link-btn {
+                padding: 14px 20px;
+                font-size: 0.95rem;
+      }
+}
