@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Personal Link Hub</title>
+
+    <!-- FontAwesome for Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+      <!-- Google Fonts: Poppins -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+      <!-- Animated Background Circles for Glassmorphism -->
+      <div class="bg-circles">
+          <div class="circle circle-1"></div>
+          <div class="circle circle-2"></div>
+          <div class="circle circle-3"></div>
+      </div>
+
+      <!-- Main Container Container -->
+      <div class="container">
+          <!-- Profile Picture (Placeholder from Unsplash) -->
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Profile Picture" class="profile-img">
+
+          <!-- Name and Bio -->
+          <h1 class="name">Ism Familiya</h1>
+          <p class="bio">Web Dasturchi & Dizayner | Texnologiyalar shaydosi</p>
+
+          <!-- Links Box -->
+          <div class="links">
+              <a href="#" class="link-btn telegram">
+                  <i class="fab fa-telegram-plane"></i>
+                  Telegram
+              </a>
+              <a href="#" class="link-btn instagram">
+                  <i class="fab fa-instagram"></i>
+                  Instagram
+              </a>
+              <a href="#" class="link-btn linkedin">
+                  <i class="fab fa-linkedin-in"></i>
+                  LinkedIn
+              </a>
+              <a href="#" class="link-btn portfolio">
+                  <i class="fas fa-globe"></i>
+                  Portfolio
+              </a>
+              <a href="#" class="link-btn youtube">
+                  <i class="fab fa-youtube"></i>
+                  YouTube
+              </a>
+          </div>
+      </div>
+
+      <!-- Scripts for interactive effects -->
+      <script>
+          // JS: Tugma bosilganda yengil to'lqin (ripple) effekti
+          const buttons = document.querySelectorAll('.link-btn');
+        buttons.forEach(btn => {
+                      btn.addEventListener('click', function (e) {
+                          let x = e.clientX - e.target.getBoundingClientRect().left;
+                let y = e.clientY - e.target.getBoundingClientRect().top;
+
+                let ripples = document.createElement('span');
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                ripples.classList.add('ripple');
+
+                this.appendChild(ripples);
+
+                // Animatsiya tugagach elementni o'chirish
+                setTimeout(() => {
+                                      ripples.remove();
+}, 600);
+});
+});
+    </script>
+      </body>
+      </html>
+      
